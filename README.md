@@ -1,3 +1,7 @@
+### Project Instructions:
+
+https://github.com/addisonglobal/frontend-technical-test
+
 ### TODO
 
 [ ] Use Emotion to create styles
@@ -8,7 +12,9 @@
 
 [x] Add call to api
 
-[ ] Add tests
+[ ] Add tests (Jest & cypress?)
+
+[ ] Add notification for when a bet is placed (bottom - slide up)
 
 ### Problems
 
