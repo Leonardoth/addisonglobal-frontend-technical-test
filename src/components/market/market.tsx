@@ -5,7 +5,6 @@ export default function Market({ id, name, selections }: MarketType) {
   const [selected, setSelected]: any = useState(undefined);
   function handleSelection(id: string) {
     setSelected(id);
-    console.log(selected);
   }
 
   return (
