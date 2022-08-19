@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import Event from './components/event/Event';
+import getBets from './services/api';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [bets, setBets]: any = useState(undefined);
+
+  function populateBets(): void {
+    getBets()
+      .then((res: EventType[]) => {
+        return res.filter((element: EventType) => element.markets.length > 0);
+      })
+      .catch((err: string) => console.log(err))
+      .then((res: EventType[]) => {
+        setBets(
+          res.map((element: EventType) => {
+            return (
+              <Event
+                id={element.id}
+                key={element.id}
+                name={element.name}
+                markets={element.markets}
+              />
+            );
+          })
+        );
+      })
+      .catch((err: string) => console.log(err));
+  }
+
+  useEffect(populateBets, []);
+
+  return <div className='App'>{bets}</div>;
 }
 
 export default App;
