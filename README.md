@@ -11,3 +11,16 @@
 [ ] Add tests
 
 ### Problems
+
+### How To run
+
+```
+yarn install
+yarn start
+```
+
+### How to test
+
+```
+TODO
+```
