@@ -1,6 +1,6 @@
 import getBets from '../api';
 
-test('Should return an array of EventType', () => {
-  const result = async () => await getBets();
-  expect(result.length).not.toEqual(undefined);
+test('Should return an array', async () => {
+  const result = await getBets();
+  expect(Array.isArray(result)).toEqual(true);
 });
