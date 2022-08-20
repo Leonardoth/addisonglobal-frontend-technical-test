@@ -6,15 +6,13 @@ import getBets from './services/api';
 function App() {
   const [bets, setBets]: any = useState(undefined);
 
-  function populateBets(): void {
-    getBets()
-      .then((res: EventType[]) => {
-        return res.filter((element: EventType) => element.markets.length > 0);
-      })
-      .catch((err: string) => console.log(err))
-      .then((res: EventType[]) => {
-        setBets(
-          res.map((element: EventType) => {
+  useEffect(() => {
+    async function fetchData(): Promise<any> {
+      let newBets = await getBets();
+      setBets(
+        newBets
+          .filter((element: EventType) => element.markets.length > 0)
+          .map((element: EventType) => {
             return (
               <Event
                 id={element.id}
@@ -24,12 +22,11 @@ function App() {
               />
             );
           })
-        );
-      })
-      .catch((err: string) => console.log(err));
-  }
+      );
+    }
 
-  useEffect(populateBets, []);
+    fetchData();
+  }, []);
 
   return <div className='App'>{bets}</div>;
 }
