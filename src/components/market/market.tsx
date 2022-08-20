@@ -4,6 +4,7 @@ import Selection from '../selection/selection';
 export default function Market({ id, name, selections }: MarketType) {
   const [selected, setSelected]: any = useState(undefined);
   function handleSelection(id: string) {
+    if (id === selected) return;
     setSelected(id);
   }
 
@@ -19,7 +20,8 @@ export default function Market({ id, name, selections }: MarketType) {
         {selections.map(selection => {
           return (
             <Selection
-              onClick={e => handleSelection(selection.id)}
+              key={selection.id}
+              onClick={() => handleSelection(selection.id)}
               selected={selected === selection.id}
               id={selection.id}
               name={selection.name}
