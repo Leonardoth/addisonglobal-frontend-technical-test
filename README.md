@@ -37,3 +37,8 @@ TODO
 <summary>Technologies</summary>
 I read that the company uses Emotion, Cypress, TypeScript and Jest alongside React, so I'm using the same stack and learning as i go.
 </details>
+
+<details>
+<summary>Styling</summary>
+I tried to use css props from @emotion but had some troubles with typescript, i opted for trying styled components because of my familiarity with styled-components library and had success.
+</details>
