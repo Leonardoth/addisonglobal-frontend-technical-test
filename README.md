@@ -30,3 +30,10 @@ yarn start
 ```
 TODO
 ```
+
+### Challenges and Choices
+
+<details>
+<summary>Technologies</summary>
+I read that the company uses Emotion, Cypress, TypeScript and Jest alongside React, so I'm using the same stack and learning as i go.
+</details>
