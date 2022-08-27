@@ -1,4 +1,4 @@
-import getBets from '../api';
+import getBets from './api';
 
 test('Should return an array', async () => {
   const result = await getBets();
