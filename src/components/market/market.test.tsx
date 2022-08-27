@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
-import Market from '../market';
+import Market from './market';
 
 const MockSelection1: SelectionType = {
   id: 'SEL_1',
