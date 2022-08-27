@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Selection from '../selection/selection';
+import { Container, MarketName, SelectionsDiv } from './market.style';
 
 export default function Market({ id, name, selections }: MarketType) {
   const [selected, setSelected]: any = useState(undefined);
@@ -9,14 +10,9 @@ export default function Market({ id, name, selections }: MarketType) {
   }
 
   return (
-    <div key={id} style={{ width: '100%' }}>
-      <h4 style={{ textAlign: 'left', paddingInline: '20px' }}>{name}</h4>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-        }}
-      >
+    <Container key={id}>
+      <MarketName>{name}</MarketName>
+      <SelectionsDiv>
         {selections.map(selection => {
           return (
             <Selection
@@ -29,7 +25,7 @@ export default function Market({ id, name, selections }: MarketType) {
             />
           );
         })}
-      </div>
-    </div>
+      </SelectionsDiv>
+    </Container>
   );
 }
