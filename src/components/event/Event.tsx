@@ -1,19 +1,12 @@
 import React from 'react';
-import '../../types/types.d.ts';
 import Market from '../market/market';
+import { Container, EventMarketsContainer, EventName } from './Event.style';
 
 export default function Event({ name, markets }: EventType) {
   return (
-    <div>
-      <h2>{name}</h2>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'space-evenly',
-        }}
-      >
+    <Container>
+      <EventName>{name}</EventName>
+      <EventMarketsContainer>
         {markets.map(element => {
           return (
             <Market
@@ -23,7 +16,7 @@ export default function Event({ name, markets }: EventType) {
             />
           );
         })}
-      </div>
-    </div>
+      </EventMarketsContainer>
+    </Container>
   );
 }
