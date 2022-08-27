@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import Betslip from './components/Betslip/Betslip';
 import Event from './components/event/Event';
+import Header from './components/Header/Header';
 import getBets from './services/api';
 
 function App() {
@@ -28,7 +30,13 @@ function App() {
     fetchData();
   }, []);
 
-  return <div className='App'>{bets}</div>;
+  return (
+    <div className='App'>
+      <Header />
+      {bets}
+      <Betslip />
+    </div>
+  );
 }
 
 export default App;
