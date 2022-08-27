@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { UiContext, UiContextProps } from '../../context/ContextProvider';
 import { CloseButton, Container } from './Betslip.style';
 
 function Betslip() {
-  const [isOpen, setIsOpen] = useState(true);
+  const { isBetslipOpen, closeBetslip } = useContext(
+    UiContext
+  ) as UiContextProps;
 
   function handleClose() {
-    setIsOpen(false);
+    closeBetslip();
   }
-
   return (
-    <Container isOpen={isOpen}>
+    <Container isOpen={isBetslipOpen}>
       <CloseButton onClick={handleClose} />
       Betslip
       <br />

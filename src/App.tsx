@@ -4,6 +4,7 @@ import Betslip from './components/Betslip/Betslip';
 import Event from './components/event/Event';
 import Header from './components/Header/Header';
 import getBets from './services/api';
+import ContextProvider from './context/ContextProvider';
 
 function App() {
   const [bets, setBets]: any = useState(undefined);
@@ -32,9 +33,11 @@ function App() {
 
   return (
     <div className='App'>
-      <Header />
-      {bets}
-      <Betslip />
+      <ContextProvider>
+        <Header />
+        {bets}
+        <Betslip />
+      </ContextProvider>
     </div>
   );
 }
