@@ -4,15 +4,15 @@ https://github.com/addisonglobal/frontend-technical-test
 
 ### TODO
 
-[ ] Use Emotion to create styles
-
-[ ] Add redux
+[x] Use Emotion to create styles
 
 [ ] Make the code more readable
 
 [x] Add call to api
 
 [ ] Add tests (Jest & cypress?)
+
+[ ] Add redux
 
 [ ] Add notification for when a bet is placed (bottom - slide up)
 
