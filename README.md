@@ -12,7 +12,7 @@ https://github.com/addisonglobal/frontend-technical-test
 
 [ ] Add tests (Jest & cypress?)
 
-[ ] Add redux
+[x] Add redux
 
 [ ] Add notification for when a bet is placed (bottom - slide up)
 
@@ -58,5 +58,12 @@ At the moment my goal is to make redux work for managing the bets.
 Later i'll add tests and start to study redux and typescript better. So be ready for some pasta!
 
 Most of what i'm doing is following this repository https://github.com/reduxjs/cra-template-redux-typescript
+
+EDIT: Adding redux was easier the next day, followed [this video](https://www.youtube.com/watch?v=udr2rx_B99w) to understand it better. Having to do some changes because i used redux-toolkit. (Basically using configureStore instead of createStore).
+My state logic could be better but at the moment, this is the way that it worked.
+
+Passing bets with marketName and Id to the store made easier to: - Access the Market Name on Betslip - Access which bet is selected on each market
+
+Cons: - We do not have access to Event Name on Betslip at the moment (we can pass Event Name to market Component and send it to store, but i chose not to for now) - We cannot 'sort' our bets for Events, they are sorted by order of selection.
 
 </details>
