@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import { Container } from './App.style';
 import Betslip from './components/Betslip/Betslip';
 import Event from './components/event/Event';
 import Header from './components/Header/Header';
@@ -33,13 +33,13 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
+    <Container>
       <ContextProvider>
         <Header />
         {bets}
         <Betslip />
       </ContextProvider>
-    </div>
+    </Container>
   );
 }
 
