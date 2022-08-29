@@ -1,5 +1,6 @@
 import React, { MouseEventHandler } from 'react';
 import { Container, Span, SpanName } from './selection.style';
+import { SelectionType } from '../../types/types';
 
 interface SelectionInterface extends SelectionType {
   selected: boolean;

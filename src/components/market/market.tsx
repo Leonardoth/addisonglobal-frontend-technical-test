@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Selection from '../selection/selection';
 import { Container, MarketName, SelectionsDiv } from './market.style';
+import { MarketType, SelectionType } from '../../types/types';
+import { bindActionCreators } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+import * as actionCreators from '../../store/actionCreators';
+import { useAppSelector } from '../../store/hooks';
 
 export default function Market({ id, name, selections }: MarketType) {
-  const [selected, setSelected]: any = useState(undefined);
-  function handleSelection(id: string) {
-    if (id === selected) return;
-    setSelected(id);
+  const dispatch = useDispatch();
+  const { addBet, removeBet } = bindActionCreators(actionCreators, dispatch);
+  const selected = useAppSelector(state => state.markets[id]);
+
+  function handleSelection(bet: SelectionType) {
+    if (bet.id === selected)
+      return removeBet({ ...bet, marketName: name, marketId: id });
+    addBet({ ...bet, marketName: name, marketId: id });
   }
 
   return (
@@ -17,7 +26,7 @@ export default function Market({ id, name, selections }: MarketType) {
           return (
             <Selection
               key={selection.id}
-              onClick={() => handleSelection(selection.id)}
+              onClick={() => handleSelection(selection)}
               selected={selected === selection.id}
               id={selection.id}
               name={selection.name}
