@@ -21,3 +21,5 @@ type SelectionType = {
   name: string;
   price: number;
 };
+
+export { EventType, MarketType, SelectionType, ResponseType };
