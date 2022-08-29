@@ -5,6 +5,7 @@ import Event from './components/event/Event';
 import Header from './components/Header/Header';
 import getBets from './services/api';
 import ContextProvider from './context/ContextProvider';
+import { EventType } from './types/types';
 
 function App() {
   const [bets, setBets]: any = useState(undefined);
@@ -14,14 +15,14 @@ function App() {
       let newBets = await getBets();
       setBets(
         newBets
-          .filter((element: EventType) => element.markets.length > 0)
-          .map((element: EventType) => {
+          .filter((event: EventType) => event.markets.length > 0)
+          .map((event: EventType) => {
             return (
               <Event
-                id={element.id}
-                key={element.id}
-                name={element.name}
-                markets={element.markets}
+                id={event.id}
+                key={event.id}
+                name={event.name}
+                markets={event.markets}
               />
             );
           })
