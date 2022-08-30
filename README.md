@@ -8,6 +8,8 @@ https://github.com/addisonglobal/frontend-technical-test
 
 [ ] Make the code more readable
 
+[ ] Add icons for buttons (Menu/Close/Remove)
+
 [x] Add call to api
 
 [ ] Add tests (Jest & cypress?)
