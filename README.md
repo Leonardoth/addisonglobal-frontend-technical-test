@@ -55,7 +55,7 @@ At the moment my goal is to make redux work for managing the bets.
 
 Later i'll add tests and start to study redux and typescript better. So be ready for some pasta!
 
-Most of what i'm doing is following this repository https://github.com/reduxjs/cra-template-redux-typescript
+Most of what i'm doing is following [this repository](https://github.com/reduxjs/cra-template-redux-typescript)
 
 EDIT: Adding redux was easier the next day, followed [this video](https://www.youtube.com/watch?v=udr2rx_B99w) to understand it better. Having to do some changes because i used redux-toolkit. (Basically using configureStore instead of createStore).
 My state logic could be better but at the moment, this is the way that it worked.
