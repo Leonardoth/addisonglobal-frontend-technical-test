@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 
 export const Container = styled('div')`
   width: 100%;
+  border: 2.5px solid white;
+  padding: 20px;
 `;
 
 export const MarketName = styled('h4')`
