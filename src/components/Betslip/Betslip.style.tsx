@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Button } from '../Common.style';
+import grass from '../../assets/images/grass.webp';
 
 interface ContainerProps {
   isOpen: boolean;
@@ -30,8 +31,9 @@ export const Container = styled('div')<ContainerProps>`
     top: 0;
     right: 0;
     background: green;
+    background: url(${grass});
+    opacity: 0.9;
     background-blend-mode: color-burn;
-    opacity: 0.5;
     z-index: 0;
   }
 `;
@@ -45,6 +47,6 @@ export const Header = styled('h1')`
 export const CloseButton = styled(Button)`
   position: absolute;
   top: 10px;
-  right: 10px;
-  padding: 10px;
+  right: 2em;
+  padding: 15px;
 `;

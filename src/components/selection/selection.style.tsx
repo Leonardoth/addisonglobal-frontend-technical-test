@@ -1,18 +1,21 @@
 import styled from '@emotion/styled';
+import { Button } from '../Common.style';
 
 interface SelectionProps {
   selected: boolean;
 }
 
-export const Container = styled('div')<SelectionProps>`
+export const Container = styled(Button)<SelectionProps>`
   padding: 10px;
   width: 20%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-evenly;
   background: none;
   color: ${props => (props.selected ? 'white' : 'black')};
-  outline: 1px solid black;
+  outline: ${props => (props.selected ? '5px solid white' : 'none')};
+  border-radius: ${props => (props.selected ? '3px' : '5px')};
   background: ${props => (props.selected ? 'green' : 'white')};
 `;
 
