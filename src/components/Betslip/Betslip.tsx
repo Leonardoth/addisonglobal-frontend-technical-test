@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { UiContext, UiContextProps } from '../../context/ContextProvider';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { CloseButton, Container } from './Betslip.style';
-import { SelectionType } from '../../types/types';
 import { bindActionCreators } from '@reduxjs/toolkit';
 import * as actionCreators from '../../store/actionCreators';
+import BetComponent from './BetComponent/BetComponent';
 
 function Betslip() {
   const { isBetslipOpen, closeBetslip } = useContext(
@@ -30,11 +30,13 @@ function Betslip() {
       <br />
       Your bets goes here
       {bets.map((bet: actionCreators.Bet) => (
-        <div key={bet.id}>
-          <span>{bet.name}</span>
-          <span>{bet.price}</span>
-          <button onClick={() => handleDelete(bet)}>X</button>
-        </div>
+        <BetComponent
+          id={bet.id}
+          marketName={bet.marketName}
+          name={bet.name}
+          price={bet.price}
+          handleRemove={() => handleDelete(bet)}
+        />
       ))}
     </Container>
   );

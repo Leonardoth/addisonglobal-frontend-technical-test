@@ -8,7 +8,6 @@ export const Container = styled('div')<ContainerProps>`
   position: fixed;
   padding: 20px;
   height: 100vh;
-  background: white;
   top: 0;
   right: 0;
   z-index: 1;
@@ -19,11 +18,25 @@ export const Container = styled('div')<ContainerProps>`
     `
     transform: translateX(0%);
   `}
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: green;
+    background-blend-mode: color-burn;
+    opacity: 0.5;
+    z-index: 0;
+  }
 `;
 
 export const CloseButton = styled('button')`
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 5px;
+  padding: 10px;
 `;
