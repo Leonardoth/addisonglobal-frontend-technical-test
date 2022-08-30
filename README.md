@@ -16,8 +16,6 @@ https://github.com/addisonglobal/frontend-technical-test
 
 [ ] Add notification for when a bet is placed (bottom - slide up)
 
-### Problems
-
 ### How To run
 
 ```
@@ -65,5 +63,13 @@ My state logic could be better but at the moment, this is the way that it worked
 Passing bets with marketName and Id to the store made easier to: - Access the Market Name on Betslip - Access which bet is selected on each market
 
 Cons: - We do not have access to Event Name on Betslip at the moment (we can pass Event Name to market Component and send it to store, but i chose not to for now) - We cannot 'sort' our bets for Events, they are sorted by order of selection.
+
+</details>
+
+<details>
+<summary>Design</summary>
+At the moment i went for a basic design, resembling a soccer field, used a noise image generated from [this site](https://cssmatic.com/noise-texture) to create the background, used white strokes and black backgrounds with 0.2 alpha.
+
+Maybe in the future i'll change the bets (inside betslip), changind the remove button to a red card or something similar.
 
 </details>
