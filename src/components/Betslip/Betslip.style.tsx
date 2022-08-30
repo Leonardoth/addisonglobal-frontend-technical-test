@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Button } from '../Common.style';
 
 interface ContainerProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ export const Container = styled('div')<ContainerProps>`
   position: fixed;
   padding: 20px;
   height: 100vh;
+  min-width: 10em;
   top: 0;
   right: 0;
   z-index: 1;
@@ -34,7 +36,13 @@ export const Container = styled('div')<ContainerProps>`
   }
 `;
 
-export const CloseButton = styled('button')`
+export const Header = styled('h1')`
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 5px solid white;
+`;
+
+export const CloseButton = styled(Button)`
   position: absolute;
   top: 10px;
   right: 10px;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { UiContext, UiContextProps } from '../../context/ContextProvider';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { CloseButton, Container } from './Betslip.style';
+import { CloseButton, Container, Header } from './Betslip.style';
 import { bindActionCreators } from '@reduxjs/toolkit';
 import * as actionCreators from '../../store/actionCreators';
 import BetComponent from './BetComponent/BetComponent';
@@ -26,9 +26,7 @@ function Betslip() {
   return (
     <Container isOpen={isBetslipOpen}>
       <CloseButton onClick={handleClose} />
-      Betslip
-      <br />
-      Your bets goes here
+      <Header>Your Bets</Header>
       {bets.map((bet: actionCreators.Bet) => (
         <BetComponent
           id={bet.id}

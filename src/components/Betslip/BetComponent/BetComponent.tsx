@@ -5,7 +5,6 @@ import {
   NameSpan,
   PriceSpan,
   RemoveButton,
-  Span,
 } from './BetComponent.style';
 
 interface BetComponentProps {
