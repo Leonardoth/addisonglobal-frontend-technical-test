@@ -14,9 +14,10 @@ export const Container = styled(Button)<SelectionProps>`
   justify-content: space-evenly;
   background: none;
   color: ${props => (props.selected ? 'white' : 'black')};
-  outline: ${props => (props.selected ? '5px solid white' : 'none')};
-  border-radius: ${props => (props.selected ? '3px' : '5px')};
-  background: ${props => (props.selected ? 'green' : 'white')};
+  outline: ${props =>
+    props.selected ? '5px solid rgba(255,255,255,0.7)' : 'none'};
+  border-radius: ${props => (props.selected ? '2px' : '5px')};
+  background: ${props => (props.selected ? 'none' : 'white')};
 `;
 
 export const Span = styled('span')``;
