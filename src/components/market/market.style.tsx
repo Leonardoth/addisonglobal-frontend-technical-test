@@ -15,4 +15,5 @@ export const MarketName = styled('h4')`
 export const SelectionsDiv = styled('div')`
   display: flex;
   justify-content: space-evenly;
+  gap: 20px;
 `;

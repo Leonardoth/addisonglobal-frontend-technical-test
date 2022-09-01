@@ -1,5 +1,5 @@
 import React, { MouseEventHandler } from 'react';
-import { Container, Span, SpanName } from './selection.style';
+import { Container, SpanName, SpanPrice } from './selection.style';
 import { SelectionType } from '../../types/types';
 
 interface SelectionInterface extends SelectionType {
@@ -11,7 +11,7 @@ const Selection = ({ name, price, selected, onClick }: SelectionInterface) => {
   return (
     <Container selected={selected} onClick={onClick}>
       <SpanName>{name}</SpanName>
-      <Span>{price}</Span>
+      <SpanPrice>{price}</SpanPrice>
     </Container>
   );
 };
