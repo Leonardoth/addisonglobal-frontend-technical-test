@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Button } from '../../Common.style';
 
 export const Container = styled('div')`
   position: relative;
@@ -22,7 +23,7 @@ export const PriceSpan = styled(Span)`
   font-size: 1.5em;
 `;
 
-export const RemoveButton = styled('button')`
+export const RemoveButton = styled(Button)`
   background: rgba(150, 0, 0, 1);
   color: white;
   font-weight: bold;
