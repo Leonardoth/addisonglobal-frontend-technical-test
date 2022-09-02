@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Container } from './Header.style';
+import { Button, Container, Logo } from './Header.style';
 
 import { UiContext, UiContextProps } from '../../context/ContextProvider';
 
@@ -12,7 +12,8 @@ function Header() {
 
   return (
     <Container>
-      <Button onClick={handleOpenBetslip}>=</Button>
+      <Logo>Addison Global Bets</Logo>
+      <Button onClick={handleOpenBetslip}>My Bets</Button>
     </Container>
   );
 }
