@@ -41,9 +41,9 @@ function App() {
       <Betslip />
       {Context.notification.id && (
         <Notification
-          id={Context.notification.id ? Context.notification.id : '000'}
+          id={Context.notification.id}
           title={Context.notification.title}
-          message={Context.notification.message || 'Default Meçage'}
+          message={Context.notification.message}
         />
       )}
     </Container>
