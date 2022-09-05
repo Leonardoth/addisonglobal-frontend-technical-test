@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container } from './App.style';
 import Betslip from './components/Betslip/Betslip';
 import Event from './components/event/Event';
 import Header from './components/Header/Header';
 import getBets from './services/api';
-import ContextProvider from './context/ContextProvider';
 import { EventType } from './types/types';
 import Notification from './components/Notification/Notification';
+import { UiContext, UiContextProps } from './context/ContextProvider';
 
 function App() {
   const [bets, setBets]: any = useState(undefined);
+  const Context = useContext(UiContext) as UiContextProps;
 
   useEffect(() => {
     async function fetchData(): Promise<any> {
@@ -35,16 +36,16 @@ function App() {
 
   return (
     <Container>
-      <ContextProvider>
-        <Header />
-        {bets}
-        <Betslip />
+      <Header />
+      {bets}
+      <Betslip />
+      {Context.notification.id && (
         <Notification
-          id='123'
-          title='Test Notification'
-          message='This is a test Message'
+          id={Context.notification.id ? Context.notification.id : '000'}
+          title={Context.notification.title}
+          message={Context.notification.message || 'Default Meçage'}
         />
-      </ContextProvider>
+      )}
     </Container>
   );
 }
