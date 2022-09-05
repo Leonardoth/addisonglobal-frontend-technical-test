@@ -6,7 +6,7 @@ export interface UiContextProps {
   closeBetslip: Function;
   newNotification: Function;
   notification: {
-    id: string | boolean;
+    id: string | false;
     title: string;
     message: string;
   };
