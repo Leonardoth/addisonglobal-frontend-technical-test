@@ -43,7 +43,7 @@ export const Div = styled('div')`
   background: rgba(255, 255, 255, 1);
   color: black;
   border-radius: 20px 20px 0px 0px;
-  animation: ${anim} 5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+  animation: ${anim} 5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 `;
 
 export const Title = styled('h3')``;
