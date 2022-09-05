@@ -6,16 +6,25 @@ import { bindActionCreators } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import * as actionCreators from '../../store/actionCreators';
 import { useAppSelector } from '../../store/hooks';
+import useNotify, { NotificationTypes } from '../../hooks/useNotify';
 
 export default function Market({ id, name, selections }: MarketType) {
   const dispatch = useDispatch();
   const { addBet, removeBet } = bindActionCreators(actionCreators, dispatch);
   const selected = useAppSelector(state => state.markets[id]);
+  const { notify } = useNotify();
 
   function handleSelection(bet: SelectionType) {
-    if (bet.id === selected)
-      return removeBet({ ...bet, marketName: name, marketId: id });
-    addBet({ ...bet, marketName: name, marketId: id });
+    const marketName = name;
+    if (bet.id === selected) {
+      notify({
+        type: NotificationTypes.REMOVE_BET,
+        payload: { marketName, bet },
+      });
+      return removeBet({ ...bet, marketName, marketId: id });
+    }
+    notify({ type: NotificationTypes.ADD_BET, payload: { marketName, bet } });
+    return addBet({ ...bet, marketName, marketId: id });
   }
 
   return (

@@ -5,6 +5,7 @@ import { CloseButton, Container, Header } from './Betslip.style';
 import { bindActionCreators } from '@reduxjs/toolkit';
 import * as actionCreators from '../../store/actionCreators';
 import BetComponent from './BetComponent/BetComponent';
+import useNotify, { NotificationTypes } from '../../hooks/useNotify';
 
 function Betslip() {
   const { isBetslipOpen, closeBetslip } = useContext(
@@ -14,12 +15,17 @@ function Betslip() {
   const bets = useAppSelector(state => state.bets);
   const dispatch = useAppDispatch();
   const { removeBet } = bindActionCreators(actionCreators, dispatch);
+  const { notify } = useNotify();
 
   function handleClose() {
     closeBetslip();
   }
 
   function handleDelete(bet: actionCreators.Bet) {
+    notify({
+      type: NotificationTypes.REMOVE_BET,
+      payload: { marketName: bet.marketName, bet },
+    });
     removeBet(bet);
   }
 
