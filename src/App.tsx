@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import getBets from './services/api';
 import ContextProvider from './context/ContextProvider';
 import { EventType } from './types/types';
+import Notification from './components/Notification/Notification';
 
 function App() {
   const [bets, setBets]: any = useState(undefined);
@@ -38,6 +39,11 @@ function App() {
         <Header />
         {bets}
         <Betslip />
+        <Notification
+          id='123'
+          title='Test Notification'
+          message='This is a test Message'
+        />
       </ContextProvider>
     </Container>
   );
