@@ -1,4 +1,3 @@
-import { SelectionType } from '../types/types';
 import { Bet } from './actionCreators';
 import * as actionTypes from './actionTypes';
 import { RootState } from './store';
