@@ -4,6 +4,12 @@ export interface UiContextProps {
   isBetslipOpen: boolean;
   openBetslip: Function;
   closeBetslip: Function;
+  newNotification: Function;
+  notification: {
+    id: string | boolean;
+    title: string;
+    message: string;
+  };
 }
 
 export const UiContext = React.createContext<UiContextProps | null>(null);
@@ -14,6 +20,11 @@ interface Props {
 
 function ContextProvider({ children }: Props) {
   const [isBetslipOpen, setBetslipOpen] = useState(true);
+  const [notification, setNotification] = useState({
+    id: false,
+    title: 'Default Notification',
+    message: 'Default Message',
+  } as UiContextProps['notification']);
 
   const openBetslip = () => {
     return isBetslipOpen ? null : setBetslipOpen(true);
@@ -23,8 +34,21 @@ function ContextProvider({ children }: Props) {
     return isBetslipOpen ? setBetslipOpen(false) : null;
   };
 
+  const newNotification = (notification: UiContextProps['notification']) => {
+    const { id } = notification;
+    if (!id) return;
+    setNotification({ ...notification });
+  };
   return (
-    <UiContext.Provider value={{ isBetslipOpen, openBetslip, closeBetslip }}>
+    <UiContext.Provider
+      value={{
+        isBetslipOpen,
+        openBetslip,
+        closeBetslip,
+        newNotification,
+        notification,
+      }}
+    >
       {children}
     </UiContext.Provider>
   );
