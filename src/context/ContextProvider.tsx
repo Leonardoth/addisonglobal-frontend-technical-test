@@ -16,9 +16,10 @@ export const UiContext = React.createContext<UiContextProps | null>(null);
 
 interface Props {
   children?: React.ReactNode;
+  customContext?: Partial<UiContextProps>;
 }
 
-function ContextProvider({ children }: Props) {
+function ContextProvider({ children, customContext }: Props) {
   const [isBetslipOpen, setBetslipOpen] = useState(true);
   const [notification, setNotification] = useState({
     id: false,
@@ -47,6 +48,7 @@ function ContextProvider({ children }: Props) {
         closeBetslip,
         newNotification,
         notification,
+        ...customContext,
       }}
     >
       {children}

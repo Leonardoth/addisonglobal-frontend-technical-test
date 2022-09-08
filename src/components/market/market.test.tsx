@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import Market from './market';
 import { SelectionType, MarketType } from '../../types/types';
+import { renderWithProviders } from '../../utils/test-utils';
 
 const MockSelection1: SelectionType = {
   id: 'SEL_1',
@@ -21,7 +22,7 @@ const MockData: MarketType = {
 
 afterEach(cleanup);
 test('Market should display name correctly', () => {
-  render(
+  renderWithProviders(
     <Market
       key={MockData.id}
       id={MockData.id}
@@ -34,7 +35,7 @@ test('Market should display name correctly', () => {
 });
 
 test('Market should have both selections', () => {
-  render(
+  renderWithProviders(
     <Market
       key={MockData.id}
       id={MockData.id}
