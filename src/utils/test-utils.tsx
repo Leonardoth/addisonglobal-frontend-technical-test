@@ -20,7 +20,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
 export function renderWithProviders(
   ui: React.ReactElement,
   {
-    preloadedState = {},
+    preloadedState = { markets: [], bets: [] },
     store = setupStore(preloadedState),
     customContext,
     ...renderOptions
