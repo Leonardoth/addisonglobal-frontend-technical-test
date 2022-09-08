@@ -16,7 +16,7 @@ https://github.com/addisonglobal/frontend-technical-test
 
 [x] Add redux
 
-[ ] Add notification for when a bet is placed (bottom - slide up)
+[x] Add notification for when a bet is placed (bottom - slide up)
 
 ### How To run
 
