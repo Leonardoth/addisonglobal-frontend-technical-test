@@ -11,6 +11,7 @@ export default function Event({ name, markets }: EventType) {
         {markets.map(element => {
           return (
             <Market
+              key={element.id}
               id={element.id}
               name={element.name}
               selections={element.selections}
