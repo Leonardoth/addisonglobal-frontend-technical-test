@@ -2,7 +2,7 @@ import React, { MouseEventHandler } from 'react';
 import { Container, SpanName, SpanPrice } from './selection.style';
 import { SelectionType } from '../../types/types';
 
-interface SelectionInterface extends SelectionType {
+export interface SelectionInterface extends SelectionType {
   selected: boolean;
   onClick: MouseEventHandler;
 }
