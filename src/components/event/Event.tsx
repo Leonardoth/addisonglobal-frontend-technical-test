@@ -6,7 +6,7 @@ import { EventType } from '../../types/types';
 export default function Event({ name, markets }: EventType) {
   return (
     <Container key={name}>
-      <EventName>{name}</EventName>
+      <EventName data-cy='EventName'>{name}</EventName>
       <EventMarketsContainer>
         {markets.map(element => {
           return (
