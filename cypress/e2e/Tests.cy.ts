@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 
-import { click } from '@testing-library/user-event/dist/click';
-
 /* 
 When the page loads, you should fetch the data to render the event list. 
 
@@ -63,13 +61,82 @@ describe('Making Bet', () => {
 
     // Clicking on it again should remove the bet
     cy.get('@firstSelection').click();
+
     // Notification should say that a bet was removed
     cy.get('[data-cy=Notification]').contains('Removed Bet');
 
+    // Betslip should be empty
     cy.get('[data-cy=Betslip]')
       .get('[data-cy=Betslip-Bet]')
       .should('have.length', 0);
   });
 
-  it('');
+  it('Should add two bets and remove one through Betslip', () => {
+    // Get first bet available
+    cy.get('[data-cy=Selection]').first().as('firstSelection');
+    // add bet
+    cy.get('@firstSelection').click();
+
+    // Get second event, click on last bet of it
+    cy.get('[data-cy=Event]')
+      .eq(1)
+      .within($el => cy.wrap($el).get('[data-cy=Selection]').last().click());
+
+    // Open betslip
+    cy.get('[data-cy=Betslip-Open').click();
+    // Checks if there's two bets inside betslip
+    cy.get('[data-cy=Betslip]')
+      .get('[data-cy=Betslip-Bet]')
+      .should('have.length', 2);
+
+    // Removes the last bet
+    cy.get('[data-cy=Betslip]')
+      .get('[data-cy=Betslip-Bet-Remove]')
+      .last()
+      .click();
+
+    // Checks if the bet was removed
+    cy.get('[data-cy=Betslip]')
+      .get('[data-cy=Betslip-Bet]')
+      .should('have.length', 1);
+
+    // Checks if the selection lost 'selected' style
+    cy.get('[data-cy=Event]')
+      .eq(1)
+      .within($el =>
+        cy
+          .wrap($el)
+          .get('[data-cy=Selection]')
+          .should('have.css', 'outline-style', 'none')
+      );
+  });
+
+  it('Should add a bet, close and open the betslip to see if the bet is persistent', () => {
+    // Get first bet available
+    cy.get('[data-cy=Selection]').first().as('firstSelection');
+    // add bet
+    cy.get('@firstSelection').click();
+
+    // Open betslip
+    cy.get('[data-cy=Betslip-Open').as('openBetslip').click();
+
+    // Checks if the bet is inside betslip
+    cy.get('[data-cy=Betslip]')
+      .get('[data-cy=Betslip-Bet]')
+      .should('have.length', 1);
+
+    // Closes betslip
+    cy.get('[data-cy=Betslip-Close]').click();
+
+    // Check if betslip it's closed
+    cy.get('[data-cy=Betslip]').should('not.be.visible');
+
+    // Open betslip
+    cy.get('@openBetslip').click();
+
+    // Checks if the bet is still inside betslip
+    cy.get('[data-cy=Betslip]')
+      .get('[data-cy=Betslip-Bet]')
+      .should('have.length', 1);
+  });
 });
