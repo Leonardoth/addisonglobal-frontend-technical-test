@@ -35,7 +35,6 @@ function Betslip() {
       <Header data-cy='Betslip-Header'>Your Bets</Header>
       {bets.map((bet: actionCreators.Bet) => (
         <BetComponent
-          data-cy='Betslip-Bet'
           key={bet.id}
           id={bet.id}
           marketName={bet.marketName}

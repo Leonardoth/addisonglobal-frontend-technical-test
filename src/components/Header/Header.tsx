@@ -13,7 +13,9 @@ function Header() {
   return (
     <Container>
       <Logo>Addison Global Bets</Logo>
-      <Button onClick={handleOpenBetslip}>My Bets</Button>
+      <Button onClick={handleOpenBetslip} data-cy='Betslip-Open'>
+        My Bets
+      </Button>
     </Container>
   );
 }

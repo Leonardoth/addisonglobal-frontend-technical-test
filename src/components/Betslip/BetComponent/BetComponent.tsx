@@ -23,7 +23,7 @@ function BetComponent({
   handleRemove,
 }: BetComponentProps) {
   return (
-    <Container key={id}>
+    <Container key={id} data-cy='Betslip-Bet'>
       <MarketSpan>{marketName}</MarketSpan>
       <NameSpan>{name}</NameSpan>
       <PriceSpan>{price}</PriceSpan>
