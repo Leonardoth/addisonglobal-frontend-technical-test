@@ -30,11 +30,12 @@ function Betslip() {
   }
 
   return (
-    <Container isOpen={isBetslipOpen}>
-      <CloseButton onClick={handleClose} />
-      <Header>Your Bets</Header>
+    <Container isOpen={isBetslipOpen} data-cy='Betslip'>
+      <CloseButton onClick={handleClose} data-cy='Betslip-Close' />
+      <Header data-cy='Betslip-Header'>Your Bets</Header>
       {bets.map((bet: actionCreators.Bet) => (
         <BetComponent
+          data-cy='Betslip-Bet'
           key={bet.id}
           id={bet.id}
           marketName={bet.marketName}

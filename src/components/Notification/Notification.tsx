@@ -14,10 +14,10 @@ interface NotificationProps {
 
 function Notification({ id, title, message }: NotificationProps) {
   return (
-    <NotificationContainer>
+    <NotificationContainer data-cy='Notification'>
       <Div key={id}>
-        <Title>{title}</Title>
-        <Message>{message}</Message>
+        <Title data-cy='Notification-Title'>{title}</Title>
+        <Message data-cy='Notification-Message'>{message}</Message>
       </Div>
     </NotificationContainer>
   );

@@ -9,7 +9,7 @@ export interface SelectionInterface extends SelectionType {
 
 const Selection = ({ name, price, selected, onClick }: SelectionInterface) => {
   return (
-    <Container selected={selected} onClick={onClick}>
+    <Container selected={selected} onClick={onClick} data-cy='Selection'>
       <SpanName>{name}</SpanName>
       <SpanPrice>{price}</SpanPrice>
     </Container>

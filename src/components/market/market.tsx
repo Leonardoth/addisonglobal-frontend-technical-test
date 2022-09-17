@@ -28,7 +28,7 @@ export default function Market({ id, name, selections }: MarketType) {
   }
 
   return (
-    <Container>
+    <Container data-cy='Market'>
       <MarketName>{name}</MarketName>
       <SelectionsDiv>
         {selections.map(selection => {
