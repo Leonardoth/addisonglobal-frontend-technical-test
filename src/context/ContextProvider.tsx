@@ -20,7 +20,7 @@ interface Props {
 }
 
 function ContextProvider({ children, customContext }: Props) {
-  const [isBetslipOpen, setBetslipOpen] = useState(true);
+  const [isBetslipOpen, setBetslipOpen] = useState(false);
   const [notification, setNotification] = useState({
     id: false,
     title: 'Default Notification',
