@@ -27,7 +27,9 @@ function BetComponent({
       <MarketSpan>{marketName}</MarketSpan>
       <NameSpan>{name}</NameSpan>
       <PriceSpan>{price}</PriceSpan>
-      <RemoveButton onClick={() => handleRemove()}>Remove</RemoveButton>
+      <RemoveButton onClick={() => handleRemove()} data-cy='Betslip-Bet-Remove'>
+        Remove
+      </RemoveButton>
     </Container>
   );
 }
