@@ -12,7 +12,7 @@ https://github.com/addisonglobal/frontend-technical-test
 
 [x] Add call to api
 
-[ ] Add tests (Jest & cypress?)
+[x] Add tests (Jest & cypress?)
 
 [x] Add redux
 
@@ -73,5 +73,19 @@ Cons: - We do not have access to Event Name on Betslip at the moment (we can pas
 At the moment i went for a basic design, resembling a soccer field, used a noise image generated from [this site](https://cssmatic.com/noise-texture) to create the background, used white strokes and black backgrounds with 0.2 alpha.
 
 Maybe in the future i'll change the bets (inside betslip), changind the remove button to a red card or something similar.
+
+</details>
+
+<details>
+<summary>Tests</summary>
+Jest:
+    To run jest, simple run:
+    
+    `yarn test`
+
+Cypress:
+To run cypress (E2E):
+
+    `yarn cypress open`
 
 </details>
